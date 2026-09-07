@@ -1,0 +1,21 @@
+{
+  "name": "Nuve Smart Azan Recovery",
+  "version": "1.0.12",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "improv": false,
+      "parts": [
+        {
+          "path": "firmware/nuve-1.0.12.factory.bin",
+          "offset": 0
+        },
+        {
+          "path": "firmware/nuve-1.0.12.littlefs.bin",
+          "offset": 9502720
+        }
+      ]
+    }
+  ]
+}

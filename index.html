@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Nuve Kurtarma Yükleyicisi</title>
+  <meta name="description" content="Nuve Smart Azan cihazını USB üzerinden kurtarma yükleyicisi.">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <div class="brand" aria-hidden="true">N</div>
+      <p class="eyebrow">NUVE SMART AZAN</p>
+      <h1>Cihaz Kurtarma</h1>
+      <p class="lead">Açılmayan veya güncelleme sırasında kilitlenen cihazı USB kablosuyla yeniden kurun.</p>
+
+      <div class="warning" role="alert">
+        <strong>Tam kurulum yapılır.</strong>
+        <span>Firmware, dosya sistemi, Wi‑Fi bilgileri ve cihaz ayarları silinip yeniden yazılır.</span>
+      </div>
+
+      <ol class="steps">
+        <li><span>1</span><div><strong>Chrome veya Edge kullanın</strong><small>Masaüstü bilgisayarda bu sayfayı açın.</small></div></li>
+        <li><span>2</span><div><strong>Cihazı veri USB kablosuyla bağlayın</strong><small>Seri monitör ve cihazı kullanan diğer programları kapatın.</small></div></li>
+        <li><span>3</span><div><strong>Yükleyiciyi başlatın</strong><small>Bağlan’a basın, cihazın seri portunu seçin ve kurulumu onaylayın.</small></div></li>
+      </ol>
+
+      <esp-web-install-button manifest="manifest.json">
+        <button class="install" slot="activate" type="button">USB ile yeniden yükle</button>
+        <p class="support-error" slot="unsupported">Bu tarayıcı USB yüklemeyi desteklemiyor. Bilgisayarda güncel Chrome veya Edge kullanın.</p>
+        <p class="support-error" slot="not-allowed">USB erişimi için bu sayfayı HTTPS üzerinden açın.</p>
+      </esp-web-install-button>
+
+      <details>
+        <summary>Cihaz listede görünmüyor mu?</summary>
+        <p>USB kablosunun veri aktarımını desteklediğini kontrol edin. Ardından cihazdaki <b>BOOT</b> tuşunu basılı tutup <b>RESET</b> tuşuna bir kez basın; BOOT’u bırakıp tekrar deneyin.</p>
+      </details>
+
+      <p class="version">Kurtarma paketi: v1.0.12 · Yalnızca Nuve ESP32‑S3 cihazları içindir.</p>
+    </section>
+  </main>
+</body>
+</html>
