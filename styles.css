@@ -106,6 +106,21 @@ esp-web-install-button { display: block; }
 .install:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .support-error { margin: 0; padding: 14px 16px; border-radius: 12px; background: rgba(127, 29, 29, .35); color: #fecaca; line-height: 1.5; }
 
+.connection-help {
+  margin-top: 22px;
+  padding: 18px;
+  border: 1px solid rgba(94, 234, 212, .28);
+  border-radius: 16px;
+  background: rgba(15, 118, 110, .12);
+  color: #cbd5e1;
+}
+
+.connection-help h2 { margin: 0; color: #f8fafc; font-size: 17px; }
+.connection-help p { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.connection-help ol { margin: 14px 0 0; padding-left: 22px; }
+.connection-help li { margin-top: 8px; line-height: 1.45; }
+.connection-help .retry { margin-top: 16px; color: #ccfbf1; }
+
 details { margin-top: 22px; border-top: 1px solid var(--line); padding-top: 20px; color: #cbd5e1; }
 summary { cursor: pointer; color: #e2e8f0; font-weight: 700; }
 details p { margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }

@@ -21,8 +21,8 @@ Web Serial requires HTTPS and a desktop Chromium browser such as Chrome or Edge.
 ## Package checksums
 
 ```text
-nuve-1.0.12.factory.bin   SHA256 C0B1EB437DBCC7E7BBAA19B23D5CD585BDD8972C518F82DAFB0E15FF67DD05CA
-nuve-1.0.12.littlefs.bin  SHA256 82F5E73410B33BB012EAF75A1DFC97EF67434AF9F7B2D7E0CB62E5E91EB80971
+nuve-1.0.13.factory.bin   SHA256 718B4DCC07A3E13DD9FE43BB42A4AD1847B205AB750A6EFC1815A829D23DC5D2
+nuve-1.0.13.littlefs.bin  SHA256 1C19F2D5CFAE0BF3CA7DFCEFDF937CE77AE62627CFF358BA186B2FD15611E2E5
 ```
 
 Before publishing another version, replace both binaries, update their versioned names and paths in `manifest.json`, update the visible version in `index.html`, and recalculate the checksums.

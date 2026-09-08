@@ -34,12 +34,24 @@
         <p class="support-error" slot="not-allowed">USB erişimi için bu sayfayı HTTPS üzerinden açın.</p>
       </esp-web-install-button>
 
+      <section class="connection-help" aria-labelledby="connection-help-title">
+        <h2 id="connection-help-title">“Cihaza ulaşılamıyor” hatası mı?</h2>
+        <p>Cihaz listede görünse bile yükleme modu kapalı olabilir:</p>
+        <ol>
+          <li>Seri monitörü ve cihazı kullanan diğer programları kapatın.</li>
+          <li><b>BOOT</b> tuşunu basılı tutun.</li>
+          <li>BOOT basılıyken <b>RESET/RST</b> tuşuna bir kez basıp bırakın.</li>
+          <li>BOOT tuşunu bırakın.</li>
+        </ol>
+        <p class="retry"><b>USB ile yeniden yükle</b> düğmesine tekrar basın ve aynı seri portu seçin.</p>
+      </section>
+
       <details>
-        <summary>Cihaz listede görünmüyor mu?</summary>
-        <p>USB kablosunun veri aktarımını desteklediğini kontrol edin. Ardından cihazdaki <b>BOOT</b> tuşunu basılı tutup <b>RESET</b> tuşuna bir kez basın; BOOT’u bırakıp tekrar deneyin.</p>
+        <summary>Cihaz listede hiç görünmüyor mu?</summary>
+        <p>Veri aktarımını destekleyen başka bir USB kablosu veya bilgisayardaki başka bir USB girişi deneyin.</p>
       </details>
 
-      <p class="version">Kurtarma paketi: v1.0.12 · Yalnızca Nuve ESP32‑S3 cihazları içindir.</p>
+      <p class="version">Kurtarma paketi: v1.0.13 · Yalnızca Nuve ESP32‑S3 cihazları içindir.</p>
     </section>
   </main>
 </body>
