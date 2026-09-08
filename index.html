@@ -4,55 +4,75 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111827">
-  <title>Nuve Kurtarma Yükleyicisi</title>
-  <meta name="description" content="Nuve Smart Azan cihazını USB üzerinden kurtarma yükleyicisi.">
+  <title>Nuve Yazılım Yükleme</title>
+  <meta name="description" content="Nuve yazılımını cihazınıza USB üzerinden yükleyin.">
   <link rel="stylesheet" href="styles.css">
-  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
 </head>
 <body>
   <main class="shell">
     <section class="card">
-      <div class="brand" aria-hidden="true">N</div>
+      <div class="topbar">
+        <div class="brand" aria-hidden="true">N</div>
+        <div class="language-switch" role="group" aria-label="Dil / Language">
+          <button type="button" data-language="tr" aria-pressed="true">TR</button>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
       <p class="eyebrow">NUVE SMART AZAN</p>
-      <h1>Cihaz Kurtarma</h1>
-      <p class="lead">Açılmayan veya güncelleme sırasında kilitlenen cihazı USB kablosuyla yeniden kurun.</p>
+      <h1 data-i18n="heading">Nuve Yazılım Yükleme</h1>
+      <p class="lead" data-i18n="lead">Nuve yazılımını cihazınıza USB üzerinden yükleyin.</p>
 
       <div class="warning" role="alert">
-        <strong>Tam kurulum yapılır.</strong>
-        <span>Firmware, dosya sistemi, Wi‑Fi bilgileri ve cihaz ayarları silinip yeniden yazılır.</span>
+        <strong data-i18n="noticeTitle">Bilmeniz gereken</strong>
+        <span data-i18n="noticeText">Wi‑Fi, konum ve kişisel ayarlar sıfırlanır. Yüklemeden sonra bunları cihazdan yeniden ayarlarsınız.</span>
       </div>
 
       <ol class="steps">
-        <li><span>1</span><div><strong>Chrome veya Edge kullanın</strong><small>Masaüstü bilgisayarda bu sayfayı açın.</small></div></li>
-        <li><span>2</span><div><strong>Cihazı veri USB kablosuyla bağlayın</strong><small>Seri monitör ve cihazı kullanan diğer programları kapatın.</small></div></li>
-        <li><span>3</span><div><strong>Yükleyiciyi başlatın</strong><small>Bağlan’a basın, cihazın seri portunu seçin ve kurulumu onaylayın.</small></div></li>
+        <li><span>1</span><div><strong data-i18n="stepBrowserTitle">Bilgisayardan açın</strong><small data-i18n="stepBrowserText">Chrome veya Edge kullanın.</small></div></li>
+        <li><span>2</span><div><strong data-i18n="stepUsbTitle">Cihazı USB ile bağlayın</strong><small data-i18n="stepUsbText">Veri aktarımını destekleyen bir USB kablosu kullanın.</small></div></li>
+        <li><span>3</span><div><strong data-i18n="stepInstallTitle">Yazılımı yükleyin</strong><small data-i18n="stepInstallText">Aşağıdaki düğmeye basın ve cihazınızı seçin.</small></div></li>
       </ol>
 
-      <esp-web-install-button manifest="manifest.json">
-        <button class="install" slot="activate" type="button">USB ile yeniden yükle</button>
-        <p class="support-error" slot="unsupported">Bu tarayıcı USB yüklemeyi desteklemiyor. Bilgisayarda güncel Chrome veya Edge kullanın.</p>
-        <p class="support-error" slot="not-allowed">USB erişimi için bu sayfayı HTTPS üzerinden açın.</p>
-      </esp-web-install-button>
+      <button id="install-button" class="install" type="button" data-i18n="installButton">Yazılımı Yükle</button>
+      <p id="support-error" class="support-error" data-i18n="unsupported" hidden>Bu tarayıcı USB yüklemeyi desteklemiyor. Bilgisayarda güncel Chrome veya Edge kullanın.</p>
 
-      <section class="connection-help" aria-labelledby="connection-help-title">
-        <h2 id="connection-help-title">“Cihaza ulaşılamıyor” hatası mı?</h2>
-        <p>Cihaz listede görünse bile yükleme modu kapalı olabilir:</p>
+      <details class="help">
+        <summary data-i18n="connectionHelpTitle">Cihaz görünüyor ama bağlanmıyor mu?</summary>
+        <p data-i18n="connectionHelpIntro">Şu adımları uygulayıp tekrar deneyin:</p>
         <ol>
-          <li>Seri monitörü ve cihazı kullanan diğer programları kapatın.</li>
-          <li><b>BOOT</b> tuşunu basılı tutun.</li>
-          <li>BOOT basılıyken <b>RESET/RST</b> tuşuna bir kez basıp bırakın.</li>
-          <li>BOOT tuşunu bırakın.</li>
+          <li data-i18n="closePrograms">Seri monitörü ve cihazı kullanan diğer programları kapatın.</li>
+          <li data-i18n="holdBoot">BOOT tuşunu basılı tutun.</li>
+          <li data-i18n="pressReset">BOOT basılıyken RESET/RST tuşuna bir kez basıp bırakın.</li>
+          <li data-i18n="releaseBoot">BOOT tuşunu bırakın.</li>
         </ol>
-        <p class="retry"><b>USB ile yeniden yükle</b> düğmesine tekrar basın ve aynı seri portu seçin.</p>
-      </section>
-
-      <details>
-        <summary>Cihaz listede hiç görünmüyor mu?</summary>
-        <p>Veri aktarımını destekleyen başka bir USB kablosu veya bilgisayardaki başka bir USB girişi deneyin.</p>
+        <p class="retry" data-i18n="retryText">Yazılımı Yükle düğmesine tekrar basın ve aynı cihazı seçin.</p>
       </details>
 
-      <p class="version">Kurtarma paketi: v1.0.13 · Yalnızca Nuve ESP32‑S3 cihazları içindir.</p>
+      <details class="help">
+        <summary data-i18n="notFoundTitle">Cihaz listede görünmüyor mu?</summary>
+        <p data-i18n="notFoundText">Başka bir veri USB kablosu veya bilgisayardaki başka bir USB girişi deneyin.</p>
+      </details>
+
+      <p class="version" data-i18n="versionText">Yazılım sürümü: v1.0.13 · Yalnızca Nuve cihazları içindir.</p>
     </section>
   </main>
+
+  <dialog id="install-dialog" class="install-dialog" aria-labelledby="status-title">
+    <div class="dialog-card">
+      <div id="status-icon" class="status-icon" aria-hidden="true"></div>
+      <h2 id="status-title"></h2>
+      <p id="status-text"></p>
+      <div id="progress-wrap" class="progress-wrap" hidden>
+        <progress id="install-progress" max="100" value="0"></progress>
+        <span id="progress-value">0%</span>
+      </div>
+      <div id="dialog-actions" class="dialog-actions" hidden>
+        <button id="retry-button" class="secondary" type="button" data-i18n="retryButton">Tekrar Dene</button>
+        <button id="close-button" class="primary" type="button" data-i18n="closeButton">Kapat</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
 </body>
 </html>
