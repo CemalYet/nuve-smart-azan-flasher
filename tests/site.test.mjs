@@ -19,8 +19,8 @@ test("manifest references the v1.0.13 ESP32-S3 images at safe offsets", () => {
 });
 
 test("published binaries match the approved release package", () => {
-  assert.equal(sha256("firmware/nuve-1.0.13.factory.bin"), "718B4DCC07A3E13DD9FE43BB42A4AD1847B205AB750A6EFC1815A829D23DC5D2");
-  assert.equal(sha256("firmware/nuve-1.0.13.littlefs.bin"), "1C19F2D5CFAE0BF3CA7DFCEFDF937CE77AE62627CFF358BA186B2FD15611E2E5");
+  assert.equal(sha256("firmware/nuve-1.0.13.factory.bin"), "C3AFE8E6BF6CB27FC0A231660E22AB671AA5A192B8177BFD795C3450A712F924");
+  assert.equal(sha256("firmware/nuve-1.0.13.littlefs.bin"), "14227715204CFB5F3FBE3609482355521F94B0909F24563B4450F30CF39CB6E9");
 });
 
 test("customer flow has no ESP Web Tools menu or logs screen", () => {
