@@ -9,18 +9,18 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const readText = (path) => readFileSync(join(root, path), "utf8");
 const sha256 = (path) => createHash("sha256").update(readFileSync(join(root, path))).digest("hex").toUpperCase();
 
-test("manifest references the v1.0.13 ESP32-S3 images at safe offsets", () => {
+test("manifest references the v1.0.14 ESP32-S3 images at safe offsets", () => {
   const manifest = JSON.parse(readText("manifest.json"));
-  assert.equal(manifest.version, "1.0.13");
+  assert.equal(manifest.version, "1.0.14");
   assert.deepEqual(manifest.builds[0].parts, [
-    { path: "firmware/nuve-1.0.13.factory.bin", offset: 0 },
-    { path: "firmware/nuve-1.0.13.littlefs.bin", offset: 9502720 }
+    { path: "firmware/nuve-1.0.14-en.factory.bin", offset: 0 },
+    { path: "firmware/nuve-1.0.14.littlefs.bin", offset: 9502720 }
   ]);
 });
 
 test("published binaries match the approved release package", () => {
-  assert.equal(sha256("firmware/nuve-1.0.13.factory.bin"), "6C896E5337C55D52D5378CC6AE42E1F47F9350296C3CFC09171FED30B6E12371");
-  assert.equal(sha256("firmware/nuve-1.0.13.littlefs.bin"), "0E50A10EF65A75DFF9D914F295E6ABE43F3E0909C899FE08FD10ABC6BD5D2D7B");
+  assert.equal(sha256("firmware/nuve-1.0.14-en.factory.bin"), "EA3871FE35FC70E9D7F2EF77D0C82DB6D38C5CC8750F24E03EBF3B6936D466E6");
+  assert.equal(sha256("firmware/nuve-1.0.14.littlefs.bin"), "9D2F15BC8263F06B78EF5D325F0B889FF457690A4FEE2A6851900BD39E1EECF1");
 });
 
 test("customer flow has no ESP Web Tools menu or logs screen", () => {
@@ -43,4 +43,12 @@ test("every visible page label exists in Turkish and English", () => {
     assert.match(tr, new RegExp(`\\b${key}:`), `Turkish: ${key}`);
     assert.match(en, new RegExp(`\\b${key}:`), `English: ${key}`);
   }
+});
+
+
+test("web language does not select a different firmware", () => {
+  const app = readText("app.js");
+  assert.match(app, /new URL\("manifest.json", window.location.href\)/);
+  assert.match(app, /const files = await loadFiles\(\)/);
+  assert.doesNotMatch(app, /manifest-\$|installationLanguage/);
 });

@@ -21,8 +21,10 @@ Web Serial requires HTTPS and a desktop Chromium browser such as Chrome or Edge.
 ## Package checksums
 
 ```text
-nuve-1.0.13.factory.bin   SHA256 6C896E5337C55D52D5378CC6AE42E1F47F9350296C3CFC09171FED30B6E12371
-nuve-1.0.13.littlefs.bin  SHA256 0E50A10EF65A75DFF9D914F295E6ABE43F3E0909C899FE08FD10ABC6BD5D2D7B
+nuve-1.0.14-en.factory.bin   SHA256 EA3871FE35FC70E9D7F2EF77D0C82DB6D38C5CC8750F24E03EBF3B6936D466E6
+nuve-1.0.14.littlefs.bin  SHA256 9D2F15BC8263F06B78EF5D325F0B889FF457690A4FEE2A6851900BD39E1EECF1
 ```
 
 Before publishing another version, replace both binaries, update their versioned names and paths in `manifest.json`, update the visible version in `index.html`, and recalculate the checksums.
+
+The installer always uses the English-default factory firmware. The TR/EN page switch changes only the website language. The device language can be changed after setup.
